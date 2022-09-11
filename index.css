@@ -1,14 +1,22 @@
 .letter, .letterpart {
     transform-style: preserve-3d;
     display: inline-block;
-    height: calc(1.425rem + 2.1vw);
-    line-height: calc(1.425rem + 2.1vw);
-    width: calc((1.425rem + 2.1vw) / 1.5);
-    font-size: calc(1.425rem + 2.1vw);
+    --size: 3rem;
+    height: var(--size);
+    line-height: var(--size);
+    width: calc(var(--size) / 1.5);
+    font-size: var(--size);
     backface-visibility: hidden;
-    perspective: 250px;
     background: black;
+}
 
+.letter {
+    perspective-origin: center;
+    perspective: 12in;
+}
+
+.letter * {
+    perspective: 12in;
 }
 
 #splitflap {
@@ -16,6 +24,7 @@
     flex-wrap: wrap;
     font-family: "JetBrains Mono", "Atkinson Hyperlegible", sans-serif;
     font-weight: bold;
+    background: black;
 }
 
 .letterpart {
@@ -36,26 +45,26 @@
 
 .letter2bottom, .letter1top {
     z-index: 2;
-    animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
     animation-duration: .1s;
     animation-iteration-count: 1;
     animation-timing-function: ease-in;
 }
 
-@keyframes l1t{
-    0%{
+@keyframes l1t {
+    0% {
         transform: rotateX(0);
     }
-    100%{
+    100% {
         transform: rotateX(-180deg);
     }
 }
 
-@keyframes l2b{
-    0%{
+@keyframes l2b {
+    0% {
         transform: rotateX(180deg);
     }
-    100%{
+    100% {
         transform: rotateX(0);
     }
 }
@@ -67,6 +76,7 @@
 .letter2bottom.animate {
     animation-name: l2b;
 }
+
 .letter1top.animate {
     animation-name: l1t;
 }

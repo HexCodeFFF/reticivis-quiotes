@@ -1,4 +1,4 @@
-const letters = " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,.!?".split("")
+const letters = " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,.!?'-:".split("")
 const displaysize = 80;
 const qs = document.querySelector.bind(document)
 const displaydiv = qs("#splitflap")
