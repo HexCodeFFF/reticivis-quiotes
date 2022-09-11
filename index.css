@@ -1,0 +1,72 @@
+.letter, .letterpart {
+    transform-style: preserve-3d;
+    display: inline-block;
+    height: calc(1.425rem + 2.1vw);
+    line-height: calc(1.425rem + 2.1vw);
+    width: calc((1.425rem + 2.1vw) / 1.5);
+    font-size: calc(1.425rem + 2.1vw);
+    backface-visibility: hidden;
+    perspective: 250px;
+    background: black;
+
+}
+
+#splitflap {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: "JetBrains Mono", "Atkinson Hyperlegible", sans-serif;
+    font-weight: bold;
+}
+
+.letterpart {
+    position: absolute;
+}
+
+.letter1top, .letter2top {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
+}
+
+.letter1bottom, .letter2bottom {
+    clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
+}
+
+.letter1bottom, .letter2top {
+    z-index: 1;
+}
+
+.letter2bottom, .letter1top {
+    z-index: 2;
+    animation-fill-mode:forwards;
+    animation-duration: .1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+}
+
+@keyframes l1t{
+    0%{
+        transform: rotateX(0);
+    }
+    100%{
+        transform: rotateX(-180deg);
+    }
+}
+
+@keyframes l2b{
+    0%{
+        transform: rotateX(180deg);
+    }
+    100%{
+        transform: rotateX(0);
+    }
+}
+
+.letter1top {
+    transform: rotateX(-180deg);
+}
+
+.letter2bottom.animate {
+    animation-name: l2b;
+}
+.letter1top.animate {
+    animation-name: l1t;
+}
